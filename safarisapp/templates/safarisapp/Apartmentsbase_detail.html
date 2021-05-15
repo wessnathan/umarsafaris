@@ -1,0 +1,39 @@
+{% extends 'safarisapp/base.html' %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'safarisapp/car.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'safarisapp/cardetails.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'safarisapp/apartmentsdetails.css' %}">
+    <script src="{% static 'safarisapp/lightkbox-plus-jquery.min.js' %}"></script>
+    <title>Apartments Details </title>
+{% endblock links %}
+
+{% block content %}
+    <div class="apartment-content">
+        <div class="photos-column">
+            <a href="#{{object.Photo1.url}}" data-lightbox="mygallery"> <img src="{{object.Photo1.url}}" alt=""></a>
+            <a href="#{{object.Photo2.url}}"data-lightbox="mygallery" ><img src="{{object.Photo2.url}}" alt=""></a>
+            <a href="#{{object.Photo3.url}}"data-lightbox="mygallery" ><img src="{{object.Photo3.url}}" alt=""></a>
+            <a href="#{{object.Photo4.url}}" data-lightbox="mygallery"><img src="{{object.Photo4.url}}" alt=""></a>
+            <a href="#{{object.Photo5.url}}" data-lightbox="mygallery"><img src="{{object.Photo5.url}}" alt=""></a>
+        </div>
+        <div class="sidepage">
+            <div class="details">
+                <div class="rest">
+                    <h2>Room Details</h2>
+                    <p>
+                        
+                    </p>
+                </div>
+                <div class="facilities">
+                    <h2>Room Facilities</h2>
+                </div>
+            </div>
+        </div>
+        <div class="bpage">
+            <h2>Book Now</h2>
+        </div>
+    </div>
+
+{% endblock content %}

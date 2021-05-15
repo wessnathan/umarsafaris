@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+div.apartment-content{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr ;
+    grid-template-areas: 
+    "photos-column sidepage"
+    "photos-column bpage"
+    ;
+    width: 100%;
+}
+img{
+    width: 270px;
+    height: 150px;
+}
+div.photos-column{
+    grid-area: photos-column;
+}
+
+div.sidepage{
+    grid-area: sidepage;
+}
+
+div.bpage{
+    grid-area: bpage;
+}
+
+div.details{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+@media only screen and (max-width: 600px){
+    div.apartment-content{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+        "sidepage"
+        "photos-column"
+        "bpage"
+        ;
+        width: 100;
+    }
+    div.details{
+        grid-template-columns: 1fr;
+    }
+    img{
+        width: 300px;
+        max-width: 380px;
+    }
+    div.photos-column img{
+        height: 100%;
+    }
+    div.photos-column{
+        display: flex;
+        flex-direction: row;
+        overflow: scroll;
+    }
+
+}
+@media only screen and (max-width){
+    div.apartment-content{
+        grid-template-areas:
+        "sidepage"
+        "photos-column"
+        "bpage"
+        ;
+    }
+}
+

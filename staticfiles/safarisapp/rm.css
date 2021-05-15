@@ -1,0 +1,112 @@
+
+
+#checked-now{
+    display: none;
+}
+.mobile{
+    display: none;
+}
+nav ul{
+    display: flex;
+    justify-content: center;
+}
+nav ul li{
+    list-style: none;
+    padding: 20px;
+}
+nav ul li a{
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    padding: 4px;
+}
+nav ul li a:hover{
+    border: 1px solid skyblue;
+    border-radius: 5px;
+    color: white;
+    background: skyblue;
+}
+div.navig{
+    padding: 15px;
+}
+
+
+.card{
+    height: 75vh;
+    width: 100%;
+    margin: 10px;
+    border: 1px solid #ede7f6;
+    border-radius: 20px;
+    padding: 0 5px;
+}
+.card:hover{
+    background: #e1f5fe;
+}
+h2{
+    margin-top: 10px;
+}
+.carimage img{
+    height: 30vh;
+    width: 100%;
+    object-fit: cover;
+}
+div.select{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.select li{
+    list-style: none;
+}
+button{
+    padding: 5px;
+    background: #ff1744;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    
+}
+button a{
+    text-decoration: none;
+}
+li i{
+    color: #6d1b7b;
+}
+
+@media screen and (max-width:660px){
+
+
+}
+/*------Small devices----------*/
+@media screen and (max-width:660px){
+    .mobile{
+        display: inline-block;
+    }
+    .fa-bars, .fa-times{
+        display: inline-block;
+        justify-content: space-between;
+    }
+    .fa-times{
+        float: right;
+        display: none;
+        color: white;
+    }
+    .fa-bars:active{
+        color: white;
+    }
+    nav ul{
+        display: none;
+    }
+    nav ul li{
+        padding: 10px;
+    }
+}
+@media screen and (min-width:660px) and (max-width:960px ){
+
+    .card{
+        height: auto;
+    }
+
+}

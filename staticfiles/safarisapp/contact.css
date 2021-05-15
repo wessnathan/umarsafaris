@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+div.about_contact{
+    display: grid;
+    grid-template-columns: 0.35fr 0.65fr;
+    grid-template-rows: 0.7fr 1.3fr 1fr;
+    grid-template-areas:
+    "about about" 
+    "contact_info contact"
+    "contact_info map"
+    ;
+    width: inherit;
+    gap: 20px;
+}
+div.about{
+    grid-area: about;
+    height: auto;
+    margin-left: 10%;
+    height: 10vh;
+    width: 80%;
+}
+div.linko, .altn1{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+div.linko a{
+    text-decoration: none;
+    color: blueviolet;
+}
+div.linko{
+    width: 100%;
+}
+
+div.contact{
+    grid-area: contact;
+    height: 50vh;
+    margin-bottom: 10px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+div.cred{
+    display: flex;
+    flex-direction: column;
+    width: 97%;
+}
+input, textarea{
+    width: 90%;
+    padding: 5px;
+    margin: 2px;
+    outline: none;
+    border: none;
+    background: #f4f9fa;
+    border-bottom: 1px solid #00bcd4;
+    border-radius: 2px;
+    
+}
+
+input:hover, textarea:hover{
+    outline: 1px solid silver;
+}
+button{
+    color: white;
+    width: 50%;
+    font-weight: bold;
+    padding: 10px;
+    background: #00bcd4;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+}
+
+div.contact_info{
+    grid-area: contact_info;
+    height: 70vh;
+    margin-left: 10%;
+}
+div.card{
+    background: #00bcd4;
+    height: 70vh;
+    color: white;
+    padding: 20px;
+    border-radius: 3px;
+    margin: 10px;
+}
+div.altn{
+    display: flex;
+    padding: 5px;
+    margin: 10px;
+}
+
+div.altn i{
+    padding: 0px 7px;
+}
+
+div.map{
+    grid-area: map;
+    height: 50vh;
+}
+
+iframe{
+    padding: 20px 0;
+    width: 90%;
+    height: 50vh;
+}
+
+
+@media only screen and (max-width:660px){
+    div.about_contact{
+        grid-template-columns: 1fr;
+        grid-template-rows:  1fr;
+        grid-template-areas:
+        "about " 
+        "contact"
+        "contact_info"
+        "map"
+        ;
+        width: 100%;
+        gap: 10px;
+    }
+    div.about{
+        height: auto;
+        width: auto;
+        margin-left: 0;
+        margin: 5px;
+        padding: 0 10px;
+    }
+    div.contact_info{
+        min-height: 70vh;
+        height: auto;
+        width: auto;
+        margin-left: 0;
+    }
+    form{
+        padding: 15px 5px;
+        margin: 10px;
+        border-radius: 3px;
+        background: #e3f2fd;
+    }
+    div.ml {
+        display: flex;
+        float: right;
+    }
+    h3{
+        padding: 0px 20px;
+    }
+    div.cred{
+        width: 100%;
+    }
+    input, textarea{
+        padding: 10px;
+        width: 100%;
+    }
+    div.contact{
+        height: auto;
+        width: auto;
+    }
+    div.map{
+        margin: 10px 0;
+        width: auto;
+        height: auto;
+        width: 100%;
+    }
+    iframe{
+        width: 100%;
+        padding: 5px;
+        min-height: 30vh;
+    }
+}
+
+@media only screen and(min-width:661px) and (max-width:760px){
+    div.about_contact{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1.5fr 1fr 1fr;
+        grid-template-areas: 
+        'about about' 
+        'contact_info contact'
+        'contact_info map'
+        ;
+        width: 100%;
+    }
+    div.about{
+        grid-area: about;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    div.contact_info{
+        grid-area: contact_info;
+        height: auto;
+    }
+    div.contact{
+        grid-area: contact;
+        height: auto;
+    }
+    div.map{
+        grid-area: map;
+    }
+}

@@ -1,0 +1,127 @@
+{% extends 'safarisapp/base.html' %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'safarisapp/rm.css' %}">
+    <link rel="stylesheet" href="{% static 'safarisapp/contact.css' %}">
+    <title>Contact Umar Safaris </title>
+{% endblock links %}
+
+{% block content %}
+    <div class="about_contact">
+        <div class="about">
+            <div class="linko">
+                <a href="#locationno">
+                    <div class="altn1">
+                        
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <h4>Map</h4>
+                    </div>
+                </a>
+                <a href="#contactno">
+                    <div class="altn1">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <h4>Contact Us</h4>
+                    </div>
+                </a>
+                <center>
+                    {% if fname %}
+                        {{fname}} We wil Get back to you shortly. Thank You!!!
+                    {% endif %}
+                </center>
+            </div>
+            <p>
+
+                <h2>About Us</h2>
+                Lorem ipsum dolor sit amet, consectetur adipisicing el
+                it. Cum inventore ut dicta ex aliquam, sequi modi nam b
+                eatae voluptatibus ullam debitis accusantium fugiat ad d
+                oloremque quas veritatis sapiente illo quo nih
+                il in temporibus! Quia earum facere reprehenderit il
+                lo odit voluptatum praesentium exercitationem sapiente. S
+                aepe minima iure unde molestiae ratione veritat
+                is quod voluptate aliquam, libero maxime v
+                itae ad est incidunt sunt nostrum adipisci, par
+                iatur ea. Quae porro exercitationem nemo temp
+                oribus quidem.
+            </p>
+        </div>
+        <div class="contact" id="contactno">
+            <h3>Send Us Your message </h3>
+            <form action="{% url 'contact' %}" method="POST">
+                {% csrf_token %}
+                <div class="names">
+                    <input type="text" name="fname" placeholder="Please enter you full name">
+                </div>
+                <div class="cred">
+                    <div class="ml">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <input type="email" name="email" placeholder="Please Enter you email" required>
+                    </div>
+                    <div class="ml">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <input type="tel" name="tel" placeholder="Please enter you contact" required>
+                    </div>
+                    
+                </div>
+                <div class="mesg">
+                    <input type="text" name="title" placeholder="Enter Subject/Title for Quick Response">
+                    <textarea name="message" id="msgs" cols="30" rows="10"></textarea>
+                </div>
+                <button type="submit" >Send Message</button>
+                
+                
+            </form>
+        </div>
+        <div class="contact_info">
+            <div class="card">
+                <div class="address">
+                    <div class="altn">
+                        <i class="fa fa-address-book" aria-hidden="true"></i>
+                        <h4>Address</h4>
+                    </div>
+                    <p>
+                        P.O Box <br>
+                        40400 <br>
+                        Kisumu, Kenya
+                    </p>
+                </div>
+                <div class="tel">
+                    <div class="altn">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <h4>Contacts</h4>
+                    </div>
+                    <p>
+                        0700000001
+                    </p>
+                </div>
+                <div class="mail">
+                    <div class="altn">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <h4>Email</h4>
+                    </div>
+                    <p>
+                        umardafaris@gmail.com
+                    </p>
+                    
+                </div>
+                <div class="loc">
+                    <div class="altn">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <h4>Location</h4>
+                    </div>
+                    <p>
+                        Kisumu <br> 
+                        Nairobi <br> 
+                        & <br>
+                        Mombasa
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="map" id="locationno">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31910.512857174384!2d36.77978984768027!3d-1.285532739990881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1a0dfd90fa55%3A0x37f5057a6f21bc7c!2sKilimani%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1620318517208!5m2!1sen!2ske"  style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+{% endblock content %}

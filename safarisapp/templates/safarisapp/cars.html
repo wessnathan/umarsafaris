@@ -1,0 +1,38 @@
+{% extends 'safarisapp/base.html' %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'safarisapp/car.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:wght@300;400;800&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <title>Umar Cars</title>
+{% endblock links %}
+
+    {% block content %}
+        {% for content in carpage  %}
+                <div class="card">
+                    <h2>{{ content.name }}</h2>
+                    <div class="carimage">
+                        <img src="{{ content.image.url }}" alt="new test">
+                    </div>
+                    <div class="carcontent">
+                        <p>
+                            {{ content.description }}
+                        </p>
+                    </div>
+                    
+                    <div class="select">
+                        <div class="liked">
+                            <li><i class="fa fa-heart fax2" aria-hidden="true"></i></li>
+                        </div>
+                        <div class="butt">
+                            <button type="button"><a href="#">Book Now</a></button>
+                            <button type="button"><a href="#">Reserve</a></button>
+                            <button type="submit"><a href="{% url 'car-detail' content.slug %}">More</a></button>
+                        </div>
+                        <!--button type="submit"><a href="{% url 'car-detail' content.slug %}">MORE</a></button>
+                        <button type="submit"><a href="#">Book Now</a></button-->
+                    </div>
+                </div>
+                
+        {% endfor %}
+    {% endblock content %}

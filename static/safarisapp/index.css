@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.cont{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1.5fr;
+    grid-template-rows:  1fr ;
+    grid-template-areas: 
+    "main"
+    ;
+}
+
+/*nav{
+    grid-area: nav;
+    background: #424242;
+    width: 100%;
+}*/
+main{
+    grid-area: main;
+    background-size: cover;
+    object-fit: cover;
+}/*
+section{
+    grid-area: section;
+    background:#424242;
+}*/
