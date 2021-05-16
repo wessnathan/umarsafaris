@@ -26,7 +26,7 @@ def contact(request):
             title,#subject
             message ,#message
             email,#from 
-            ['umarsafariskenya@gmail.com'],#to
+            ['umarsafariskenya@gmail.com', 'kelvinumar@yahoo.com'],#to
         )
         save_inquiry_info = Contact(fname=fname, email=email, tel=tel, message=message, title=title)
         save_inquiry_info.save()
@@ -81,7 +81,9 @@ class TestimonialListView(ListView):
     
 class CarDetailView(DetailView):
     model = Carfeatures
+    template_name = 'safarisapp/carfeatures_detail.html'
     
     
 class ApartmentsDetailView(DetailView):
     model = Apartmentsbase
+    template_name = 'safarisapp/apartmentsbase_detail.html'
