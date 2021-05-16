@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+	<title>Testimonials - Black White HTML5 Template</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{% static 'safarisapp/assets/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'safarisapp/assets/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'safarisapp/assets/css/templatemo_style.css' %}" type="text/css">	
+</head>
+<body>
+	<div class="templatemo-logo visible-xs-block">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 black-bg logo-left-container">
+			<h1 class="logo-left">Umar</h1>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 white-bg logo-right-container">
+			<h1 class="logo-right">Safaris</h1>
+		</div>			
+	</div>
+	<div class="templatemo-container">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 black-bg left-container">
+			<h1 class="logo-left hidden-xs margin-bottom-60">Umar</h1>	
+			<div class="tm-left-inner-container">
+				<ul class="nav nav-stacked templatemo-nav">
+					<li><a href="{% url 'home' %}"><i class="fa fa-home fa-medium"></i>Home</a></li>
+					<li><a href="{% url 'car' %}"><i class="fa fa-car fa-medium"></i>Cars</a></li>
+					<li><a href="{% url 'apartments' %}"><i class="fa fa-bed fa-medium"></i>Apartments</a></li>
+					<li><a href="{% url 'testimonial' %}"><i class="fa fa-comments-o fa-medium"></i>Feed Back</a></li>
+					<li><a href="{% url 'about' %}"><i class="fa fa-gears fa-medium"></i>About Us</a></li>
+					<li><a href="{% url 'contact' %}" class="active"><i class="fa fa-envelope-o fa-medium"></i>Contact Us</a></li>
+				</ul>
+			</div>
+		</div> <!-- left section -->
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 white-bg right-container">
+			<h1 class="logo-right hidden-xs margin-bottom-60">Safaris</h1>
+			<div class="tm-right-inner-container">
+				<h1 class="templatemo-header">Testimonials</h1>
+				<div class="templatemo-item templatemo-testimonial">
+					<div class="templatemo-border-right">
+                        {% for messages in msg %}
+						<p><i class="fa fa-quote-left fa-medium"></i>
+                            {{messages.mesg}}
+						</p>
+						<img src="{{messages.profile.url}}" alt="Testimonial 1" class="img-circle img-thumbnail" width="200px" height="200px">
+						<footer class="text-right">{{messages.email}}</footer>	
+                        {% endfor %}
+					</div>					
+				</div>
+				
+				<footer>
+					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-copyright">Copyright &copy; UmarSafaris2021</p>
+					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-social">
+						<a href="#"><i class="fa fa-facebook fa-medium"></i></a>
+						<a href="#"><i class="fa fa-twitter fa-medium"></i></a>
+						<a href="#"><i class="fa fa-google-plus fa-medium"></i></a>
+						<a href="#"><i class="fa fa-youtube fa-medium"></i></a>
+						<a href="#"><i class="fa fa-linkedin fa-medium"></i></a>
+					</p>
+				</footer>
+			</div>	
+		</div> <!-- right section -->
+	</div>	
+</body>
+</html>

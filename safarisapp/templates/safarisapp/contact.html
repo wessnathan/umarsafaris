@@ -1,127 +1,130 @@
-{% extends 'safarisapp/base.html' %}
 {% load static %}
+<!DOCTYPE html>
+<head>
+	<title>UmarSafaris Contact</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'safarisapp/assets/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'safarisapp/assets/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'safarisapp/assets/css/templatemo_style.css' %}" type="text/css">
+</head>
+<body>
+	<div class="templatemo-logo visible-xs-block">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 black-bg logo-left-container">
+			<h1 class="logo-left">Umar</h1>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 white-bg logo-right-container">
+			<h1 class="logo-right">Safaris</h1>
+		</div>			
+	</div>
+	<div class="templatemo-container">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 black-bg left-container">
+			<h1 class="logo-left hidden-xs margin-bottom-60">Umar</h1>	
+			<div class="tm-left-inner-container">
+				<ul class="nav nav-stacked templatemo-nav">
+					<li><a href="{% url 'home' %}"><i class="fa fa-home fa-medium"></i>Home</a></li>
+					<li><a href="{% url 'car' %}"><i class="fa fa-car fa-medium"></i>Cars</a></li>
+					<li><a href="{% url 'apartments' %}"><i class="fa fa-bed fa-medium"></i>Apartments</a></li>
+					<li><a href="{% url 'testimonial' %}"><i class="fa fa-comments-o fa-medium"></i>Feed Back</a></li>
+					<li><a href="{% url 'about' %}"><i class="fa fa-gears fa-medium"></i>About Us</a></li>
+					<li><a href="{% url 'contact' %}" class="active"><i class="fa fa-envelope-o fa-medium"></i>Contact Us</a></li>
+				</ul>
+			</div>
+		</div> <!-- left section -->
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 white-bg right-container">
+			<h1 class="logo-right hidden-xs margin-bottom-60">Safaris</h1>
+			<div class="tm-right-inner-container">
+				<h1 class="templatemo-header">Contact</h1>
+				<div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div id="map-canvas"></div>
+                        <address>
+							<strong>Umar Safaris</strong><br>
+							180 Aenean Quis Semper<br>
+							Maecenas Adipiscing, Feugiat 10450<br><br>
+							Phone: 010-060-0160<br>
+							Email: umarsafariskenya01@gmail.com<br><br>
+						</address>
+                    </div>
 
-{% block links %}
-    <link rel="stylesheet" href="{% static 'safarisapp/rm.css' %}">
-    <link rel="stylesheet" href="{% static 'safarisapp/contact.css' %}">
-    <title>Contact Umar Safaris </title>
-{% endblock links %}
+                    <div class="col-sm-12 col-md-12">
+            			<form action="{% url 'contact' %}" method="POST">
+							{% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" name="fname" id="contact_name" class="form-control" placeholder="Name" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="email" id="contact_email" class="form-control" placeholder="Email Address" />
+                            </div>
+							<div class="form-group">
+                                <input type="text" name="tel" id="contact_email" class="form-control" placeholder="Phone No." />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="title" id="contact_subject" class="form-control" placeholder="Please enter Subject for quick response" />
+                            </div>
+                            <div class="form-group">
+                                <textarea id="contact_message" name="message" class="form-control" rows="9" placeholder="Write a message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-warning">Send</button>
 
-{% block content %}
-    <div class="about_contact">
-        <div class="about">
-            <div class="linko">
-                <a href="#locationno">
-                    <div class="altn1">
-                        
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        <h4>Map</h4>
+                        </form>
                     </div>
-                </a>
-                <a href="#contactno">
-                    <div class="altn1">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        <h4>Contact Us</h4>
-                    </div>
-                </a>
-                <center>
-                    {% if fname %}
-                        {{fname}} We wil Get back to you shortly. Thank You!!!
-                    {% endif %}
-                </center>
-            </div>
-            <p>
 
-                <h2>About Us</h2>
-                Lorem ipsum dolor sit amet, consectetur adipisicing el
-                it. Cum inventore ut dicta ex aliquam, sequi modi nam b
-                eatae voluptatibus ullam debitis accusantium fugiat ad d
-                oloremque quas veritatis sapiente illo quo nih
-                il in temporibus! Quia earum facere reprehenderit il
-                lo odit voluptatum praesentium exercitationem sapiente. S
-                aepe minima iure unde molestiae ratione veritat
-                is quod voluptate aliquam, libero maxime v
-                itae ad est incidunt sunt nostrum adipisci, par
-                iatur ea. Quae porro exercitationem nemo temp
-                oribus quidem.
-            </p>
-        </div>
-        <div class="contact" id="contactno">
-            <h3>Send Us Your message </h3>
-            <form action="{% url 'contact' %}" method="POST">
-                {% csrf_token %}
-                <div class="names">
-                    <input type="text" name="fname" placeholder="Please enter you full name">
+                    <div class="clearfix"></div>
                 </div>
-                <div class="cred">
-                    <div class="ml">
-                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                        <input type="email" name="email" placeholder="Please Enter you email" required>
-                    </div>
-                    <div class="ml">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        <input type="tel" name="tel" placeholder="Please enter you contact" required>
-                    </div>
-                    
-                </div>
-                <div class="mesg">
-                    <input type="text" name="title" placeholder="Enter Subject/Title for Quick Response">
-                    <textarea name="message" id="msgs" cols="30" rows="10"></textarea>
-                </div>
-                <button type="submit" >Send Message</button>
-                
-                
-            </form>
-        </div>
-        <div class="contact_info">
-            <div class="card">
-                <div class="address">
-                    <div class="altn">
-                        <i class="fa fa-address-book" aria-hidden="true"></i>
-                        <h4>Address</h4>
-                    </div>
-                    <p>
-                        P.O Box <br>
-                        40400 <br>
-                        Kisumu, Kenya
-                    </p>
-                </div>
-                <div class="tel">
-                    <div class="altn">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        <h4>Contacts</h4>
-                    </div>
-                    <p>
-                        0700000001
-                    </p>
-                </div>
-                <div class="mail">
-                    <div class="altn">
-                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                        <h4>Email</h4>
-                    </div>
-                    <p>
-                        umardafaris@gmail.com
-                    </p>
-                    
-                </div>
-                <div class="loc">
-                    <div class="altn">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        <h4>Location</h4>
-                    </div>
-                    <p>
-                        Kisumu <br> 
-                        Nairobi <br> 
-                        & <br>
-                        Mombasa
-                    </p>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="map" id="locationno">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31910.512857174384!2d36.77978984768027!3d-1.285532739990881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1a0dfd90fa55%3A0x37f5057a6f21bc7c!2sKilimani%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1620318517208!5m2!1sen!2ske"  style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </div>
-{% endblock content %}
+				<footer>
+					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-copyright">Copyright &copy; UmarSafaris2021</p>
+					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-social">
+						<a href="#"><i class="fa fa-facebook fa-medium"></i></a>
+						<a href="#"><i class="fa fa-twitter fa-medium"></i></a>
+						<a href="#"><i class="fa fa-google-plus fa-medium"></i></a>
+						<a href="#"><i class="fa fa-youtube fa-medium"></i></a>
+						<a href="#"><i class="fa fa-linkedin fa-medium"></i></a>
+					</p>
+				</footer>
+			</div>	
+		</div> <!-- right section -->
+	</div>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+		var map = '';
+		var center;
+
+		function initialize() {
+		    var mapOptions = {
+				zoom: 16,
+		    	center: new google.maps.LatLng(16.8496189,96.1288854)
+		  	};
+		  	map = new google.maps.Map(document.getElementById('map-canvas'),  mapOptions);
+		  	google.maps.event.addDomListener(map, 'idle', function() {
+					calculateCenter();
+			});
+			
+			google.maps.event.addDomListener(window, 'resize', function() {
+				map.setCenter(center);
+			});
+		}
+
+		function calculateCenter() {
+			center = map.getCenter();
+		}
+
+		function loadGoogleMap(){
+		    // load google map
+		    var script = document.createElement('script');
+		    script.type = 'text/javascript';
+		    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
+		    'callback=initialize';
+		    document.body.appendChild(script);
+		}
+
+		$(document).ready( function() {
+			loadGoogleMap();
+		});
+
+	</script>	
+</body>
+</html>

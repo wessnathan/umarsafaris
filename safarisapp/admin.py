@@ -23,6 +23,11 @@ class Current_user_bookingAdmin(admin.ModelAdmin):
     list_filter = ('ID_No', 'carpicked', 'Email',)
     search_fields = ('Email', 'Contact', 'Second_Name', 'ID_No',)
     
+class SendMessageAdmin(admin.ModelAdmin):
+    list_display = ('email', 'dt')
+    list_filter = ('email')
+    search_fields = ('email', 'dt')
+    
     
 admin.site.register(Apartmentsbase, ApartmentsbaseAdmin),
 admin.site.register(Carfeatures, CarfeaturesAdmin),
@@ -30,4 +35,5 @@ admin.site.register(Contact, ContactAdmin)
 admin.site.register(Current_user_booking, Current_user_bookingAdmin),
 admin.site.register(SliderImage)
 admin.site.register(About)
+admin.site.register(SendMessage)
 

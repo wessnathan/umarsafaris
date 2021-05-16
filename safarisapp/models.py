@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.fields.files import ImageField
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
@@ -116,6 +117,19 @@ class Current_user_booking(models.Model):
         return f'{self.First_Name} {self.Second_Name} has rented {self.carpicked} from {self.Booking_from} till {self.Booking_to}'
         
         
+class SendMessage(models.Model):
+    mesg = models.TextField()
+    profile = models.ImageField(upload_to='userfeedback_profile')
+    email = models.EmailField()
+    dt =models.DateTimeField(auto_now_add=True) 
+    
+    class Meta:
+        verbose_name_plural = " User Posted FeedBack"
+        
+    def __str__(self):
+        return f'{self.email} posted on {self.dt}'
+
+
 class About(models.Model):
     about = models.CharField(max_length=400)
     address = models.CharField(max_length=100)

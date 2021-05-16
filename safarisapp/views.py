@@ -4,11 +4,14 @@ from django.core.mail import send_mail
 #from django.http import HttpResponse
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from .models import Carfeatures, Apartmentsbase, Contact, Current_user_booking
+from .models import Carfeatures, Apartmentsbase, Contact, Current_user_booking, SendMessage
 
 
 def home(request):
     return render(request, 'safarisapp/index.html')
+
+def about(request):
+    return render(request, 'safarisapp/about.html')
 
 def contact(request):
     if request.method == "POST":
@@ -60,15 +63,21 @@ def check_valid_data(request):
 
 class CarspageListView(ListView):
     model = Carfeatures
-    template_name = 'safarisapp/cars.html'
+    template_name = 'safarisapp/carfeatures_list.html'
     context_object_name = 'carpage'
     
     
 class ApartmentsListView(ListView):
     model = Apartmentsbase
-    template_name = 'safarisapp/apartment.html'
+    template_name = 'safarisapp/apartmentbase_list.html'
     context_object_name = 'aptno'
     
+    
+class TestimonialListView(ListView):
+    model = SendMessage
+    template_name = 'safarisapp/sendmessage_list.html'
+    context_object_name = 'msg'
+
     
 class CarDetailView(DetailView):
     model = Carfeatures

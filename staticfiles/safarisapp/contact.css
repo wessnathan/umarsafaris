@@ -140,6 +140,7 @@ iframe{
     div.contact_info{
         min-height: 70vh;
         height: auto;
+        max-width: 350px;
         width: auto;
         margin-left: 0;
     }
