@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'safarisapp/cars.css' %}">
+    <link rel="icon" type="image/jpg" href="../../../media/webicons/ulogo1.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:wght@300;400;800&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/55c80e42ff.js" crossorigin="anonymous"></script>
+    {% block links %}
+    {% endblock links %}
+</head>
+<body>
+    <div class="navig">
+        <nav>
+            <div class="mobile" id="small-nav " >
+                <i class="fa fa-bars fa-2x" aria-hidden="true" onclick="displaymenu()" id="open-now"></i>
+                <input type="checkbox" id="checked-now">
+                <i class="fa fa-times fa-2x" aria-hidden="true" onclick="closemenu()" id="close-now"></i>
+            </div>
+            <ul id="menubar">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'apartments' %}">Apartments</a></li>
+                <li><a href="{% url 'car' %}">Cars</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact US</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="apt">
+        {% block detail %}
+        {% endblock detail %}
+    </div>
+    
+    <div class="cardframe">
+        {% block content %}
+        
+        {% endblock content %}
+    </div>
+    <script>
+        function displaymenu(){
+            var boxcheck = document.getElementById('checked-now').checked 
+            ul =document.getElementById('menubar')
+            ul.style.display = "block"
+            x = document.getElementById('open-now')
+            x.style.display = "none"
+            i = document.getElementById('close-now')
+            i.style.display = "block"
+            i.style.color = "#000000"
+        }
+        function closemenu(){
+            document.getElementById('checked-now').checked = false
+            ul =document.getElementById('menubar')
+            ul.style.display = "none"
+            i = document.getElementById('close-now')
+            i.style.display = "none"
+            x = document.getElementById('open-now')
+            x.style.display = "flex"
+        }
+        
+    </script>
+    {% load tz_detect %}
+    {% tz_detect %}
+</body>
+</html>
