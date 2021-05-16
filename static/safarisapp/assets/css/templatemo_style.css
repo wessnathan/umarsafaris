@@ -163,8 +163,9 @@ footer .col-lg-6, footer .col-md-6 {
 	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(234, 231, 60, 0.6);
 }
 iframe { border: none; }
-#map-canvas {
+#map-canvas iframe{
     height: 350px;
+	width: 700px;
     margin-bottom: 30px;
 }
 .margin-bottom-60 {	margin-bottom: 60px; }
@@ -228,4 +229,8 @@ iframe { border: none; }
 	}
 	.left-container, .right-container {	padding-top: 40px; }
 	.templatemo-logo .col-lg-6, .templatemo-logo .col-md-6, .templatemo-logo .col-sm-6 { padding-top: 0; }
+	#map-canvas iframe{
+		width: 380px;
+		margin-bottom: 30px;
+	}
 }

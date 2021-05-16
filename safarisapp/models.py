@@ -140,6 +140,19 @@ class About(models.Model):
     class Meta:
         verbose_name_plural = " About Bussiness and Location"
         
+class Ourteam(models.Model):
+    name = models.CharField(max_length=15)
+    photo = models.ImageField(upload_to='Teamphotos')
+    position = models.CharField(max_length=15)
+    email = models.EmailField()
+    dates = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        verbose_name_plural = " Umar Safaris Team"
+        
+    def __str__(self):
+        return f'{self.email} posted on {self.dates}'
+        
+        
 class Contact(models.Model):
     fname = models.CharField(max_length=50)
     email = models.EmailField(max_length=50)
