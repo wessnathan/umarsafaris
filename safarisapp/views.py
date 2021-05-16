@@ -52,11 +52,11 @@ def check_valid_data(request):
                                             Booking_to=Booking_to, carpicked=carpicked)
         
         booking_info.save()
-        return render(request, 'safarisapp/Carfeatures_detail.html', {'First_Name':First_Name, 'Second_Name':Second_Name, 'ID_No':ID_No, 
+        return render(request, 'safarisapp/carfeatures_detail.html', {'First_Name':First_Name, 'Second_Name':Second_Name, 'ID_No':ID_No, 
                                                                         'Email':Email, 'Contact':Contact, 'Booking_from':Booking_from,
                                                                             'Booking_to':Booking_to, 'carpicked':carpicked })
     else:
-        return render(request, 'safarisapp/Carfeatures_detail.html' )
+        return render(request, 'safarisapp/carfeatures_detail.html' )
 
 class CarspageListView(ListView):
     model = Carfeatures
