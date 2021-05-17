@@ -54,6 +54,7 @@ MIDDLEWARE = [
 
 MIDDLEWARE += (
     'tz_detect.middleware.TimezoneMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',   #added 
 )
 
 ROOT_URLCONF = 'umarsafaris.urls'
@@ -134,7 +135,7 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesSto
 
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "staticfiles"), #changed from static to staticfiles
+    os.path.join(BASE_DIR, "static"), #changed from static to staticfiles
 ]
 
 
