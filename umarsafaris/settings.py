@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'fpmdmr6bzr8(-kqj^a7351az@&7!p&ipq@iqr2hp0sd@oxr71i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False #changed Debug to false
 
 ALLOWED_HOSTS = ['192.168.43.147', '127.0.0.1', 'umarsafaris.herokuapp.com']
 
@@ -130,10 +130,13 @@ TZ_DETECT_COUNTRIES = ('KE', 'CN', 'US', 'IN', 'JP', 'BR', 'RU', 'DE', 'FR', 'GB
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage' #added
+
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "staticfiles"), #changed from static to staticfiles
 ]
+
 
 
 MEDIA_URL = '/media/'
