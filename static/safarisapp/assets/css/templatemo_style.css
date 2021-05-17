@@ -231,6 +231,7 @@ iframe { border: none; }
 	.templatemo-logo .col-lg-6, .templatemo-logo .col-md-6, .templatemo-logo .col-sm-6 { padding-top: 0; }
 	#map-canvas iframe{
 		width: 380px;
+		height: 350px;
 		margin-bottom: 30px;
 	}
 }
