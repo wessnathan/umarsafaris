@@ -1,5 +1,12 @@
+from umarsafaris.settings import EMAIL_HOST_USER
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import get_template
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.conf import settings
 #from django.contrib import messages
 #from django.http import HttpResponse
 from django.views.generic.list import ListView
@@ -53,9 +60,37 @@ def check_valid_data(request):
                                             Booking_to=Booking_to, carpicked=carpicked)
         
         booking_info.save()
+        
+        #started
+        
+        template_name = 'email_templates/email_template.html'  #get_template('email_template.html')
+        
+        context_data =  {'First_Name':First_Name, 'Second_Name':Second_Name, 'ID_No':ID_No, 
+                                                                        'Email':Email, 'Contact':Contact, 'Booking_from':Booking_from,
+                                                                            'Booking_to':Booking_to, 'carpicked':carpicked }
+        email_html_template = get_template(template_name).render(context_data)
+        
+        
+        email = EmailMultiAlternatives(
+            #subject
+            "Thank you For Booking at UmarSafaris ",
+            #content
+            email_html_template,
+            #from
+            settings.EMAIL_HOST_USER,
+            #to
+            [Email]
+            
+        )
+        
+        email.attach_alternative(email_html_template, 'text/html')
+        email.send()
+        
         return render(request, 'safarisapp/carfeatures_detail.html', {'First_Name':First_Name, 'Second_Name':Second_Name, 'ID_No':ID_No, 
                                                                         'Email':Email, 'Contact':Contact, 'Booking_from':Booking_from,
                                                                             'Booking_to':Booking_to, 'carpicked':carpicked })
+        
+        
     else:
         return render(request, 'safarisapp/carfeatures_detail.html' )
 

@@ -26,7 +26,7 @@ SECRET_KEY = 'fpmdmr6bzr8(-kqj^a7351az@&7!p&ipq@iqr2hp0sd@oxr71i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True #changed Debug to false
 
-ALLOWED_HOSTS = ['umarsafaris.herokuapp.com']
+ALLOWED_HOSTS = ['umarsafaris.herokuapp.com', '127.0.0.1:8000']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tz_detect',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -62,7 +63,8 @@ ROOT_URLCONF = 'umarsafaris.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates/')],
+        'DIRS': [os.path.join(BASE_DIR,  'templates'),
+                    os.path.join(BASE_DIR,  'safarisapp/templates')], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -145,12 +147,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 #EMAIL SETTINGS
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT ='587'
 EMAIL_HOST_USER = 'umarsafariskenya@gmail.com'
-EMAIL_HOST_PASSWORD ='hjjdhmtwsyavbafs'
+EMAIL_HOST_PASSWORD ='qodwmgglyzhhpwmc'
 EMAIL_USE_TLS =True
 EMAIL_USE_SSL = False
+DEFAULT_FROM_EMAIL = 'amokenathaniel@gmail.com'
 
 
 django_heroku.settings(locals())
