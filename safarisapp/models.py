@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from django import forms
 from django.urls import reverse
+from PIL import Image
 
 
 class Apartmentsbase(models.Model):

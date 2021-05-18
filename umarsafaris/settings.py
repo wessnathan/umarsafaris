@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +25,7 @@ SECRET_KEY = 'fpmdmr6bzr8(-kqj^a7351az@&7!p&ipq@iqr2hp0sd@oxr71i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True #changed Debug to false
 
-ALLOWED_HOSTS = ['umarsafaris.herokuapp.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['umarsafaris.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -40,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tz_detect',
+    
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -156,4 +157,12 @@ EMAIL_USE_SSL = False
 DEFAULT_FROM_EMAIL = 'amokenathaniel@gmail.com'
 
 
-django_heroku.settings(locals())
+AWS_ACCESS_KEY_ID = 'AKIA3PGB4EV7E3VZP6P4'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'umarsafaris'
+
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
