@@ -1,13 +1,13 @@
+from django import forms
+from django.forms import ModelForm 
 from django.db import models
-from django.db.models.fields.files import ImageField
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
-from django.contrib.auth.models import User
-from django.conf import settings
-from django import forms
 from django.urls import reverse
 from PIL import Image
+from django.forms import widgets
+import datetime
 
 
 class Apartmentsbase(models.Model):
@@ -52,6 +52,8 @@ class Apartmentsbase(models.Model):
     class Meta:
         verbose_name_plural = "Available apartments and Rooms"
         
+
+
 class SliderImage(models.Model):
     Background_Images = models.ImageField(default='default.jpg', upload_to='media/slider')
     

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin.filters import ListFilter
+from .forms import Client_Booking_ApartmentForm
 from .models import *
 
 class CarfeaturesAdmin(admin.ModelAdmin):
@@ -18,6 +19,11 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ('fname', 'title', 'tel', 'email', 'date')
     list_filter = ('fname', 'email')
     search_fields = ('fname', 'tel', 'email', 'date')
+    
+class Client_Booking_ApartmentFormAdmin(admin.ModelAdmin):
+    list_display = ('Name', 'ID_No', 'Email', 'Tel')
+    list_filter = ('Name', 'ID_No')
+    search_fields = ('Name', 'ID_No', 'Email', 'Tel', 'Check_In', 'Check_Out')
     
 class Current_user_bookingAdmin(admin.ModelAdmin):
     list_display = ('First_Name', 'Second_Name', 'ID_No', 'carpicked', 'Email', 'Contact' )
@@ -39,6 +45,7 @@ admin.site.register(Apartmentsbase, ApartmentsbaseAdmin),
 admin.site.register(Carfeatures, CarfeaturesAdmin),
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Current_user_booking, Current_user_bookingAdmin),
+admin.site.register(Client_Booking_ApartmentForm, Client_Booking_ApartmentFormAdmin)
 admin.site.register(SliderImage)
 admin.site.register(About)
 admin.site.register(SendMessage)

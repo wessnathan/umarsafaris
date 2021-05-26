@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'tz_detect',
     
     'storages',
+    'safarisapp.Booking',
 ]
 
 MIDDLEWARE = [

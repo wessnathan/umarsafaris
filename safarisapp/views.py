@@ -1,17 +1,18 @@
+from django import forms
+from django.http import request
 from umarsafaris.settings import EMAIL_HOST_USER
 from django.shortcuts import render, redirect
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
-from django.core.mail import EmailMultiAlternatives
+from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import get_template
-from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
 #from django.contrib import messages
 #from django.http import HttpResponse
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from .models import Carfeatures, Apartmentsbase, Contact, Current_user_booking, Ourteam, SendMessage
+from .models import Carfeatures, Apartmentsbase,  Contact, Current_user_booking, Ourteam, SendMessage
+from .forms import aptbookingForm
+import datetime
 
 
 def home(request):
@@ -93,6 +94,38 @@ def check_valid_data(request):
         
     else:
         return render(request, 'safarisapp/carfeatures_detail.html' )
+    
+    
+def booking_details(request):
+    return render(request, 'forms/thanks.html')
+
+
+def  booking_apartments(request):
+    
+    if request.method == 'POST':
+        todays_date = datetime.date.today()
+        form = aptbookingForm(request.POST, initial={'Check_In':todays_date})
+        
+        if form.is_valid:
+            
+            #Name = form.cleaned_data.get('Name')
+            #Email = form.cleaned_data.get('Email')
+            #ID_No = form.cleaned_data.get('ID_No')
+            #Tel = form.cleaned_data.get('Tel')
+            Name = request.POST['Name']
+            Email = request.POST['Email']
+            ID_No = request.POST['ID_No']
+            Tel = request.POST['Tel']
+            #Check_In = request.POST['Check_In']
+            #Check_Out = request.POST['Check_Out']
+            
+            form.save()
+            
+            return render(request, 'forms/thanks.html', {'Name':Name, 'Email':Email, 'ID_No':ID_No, 'Tel':Tel})
+    else:
+        form = aptbookingForm()
+    return render(request, 'forms/apartment_booking_form.html', {'form':form})
+        
 
 class CarspageListView(ListView):
     model = Carfeatures
