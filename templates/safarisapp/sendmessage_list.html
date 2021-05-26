@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <head>
-	<title>Testimonials - Black White HTML5 Template</title>
+	<title>Testimonials - Umar Safaris</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<meta charset="UTF-8">
@@ -9,7 +9,8 @@
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="{% static 'safarisapp/assets/css/bootstrap.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'safarisapp/assets/css/font-awesome.min.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'safarisapp/assets/css/templatemo_style.css' %}" type="text/css">	
+    <link rel="stylesheet" href="{% static 'safarisapp/assets/css/templatemo_style.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'safarisapp/assets/css/icon.css' %}" type="text/css">	
 </head>
 <body>
 	<div class="templatemo-logo visible-xs-block">
@@ -22,8 +23,13 @@
 	</div>
 	<div class="templatemo-container">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 black-bg left-container">
-			<h1 class="logo-left hidden-xs margin-bottom-60">Umar</h1>	
-			<div class="tm-left-inner-container">
+			<h1 class="logo-left hidden-xs margin-bottom-60">Umar</h1>
+			<div class="mobile" id="small-nav " >
+				<i class="fa fa-bars fa-3x" aria-hidden="true" onclick="displaymenu()" id="open-now"></i>
+				<input type="checkbox" id="checked-now">
+				<i class="fa fa-times fa-3x" aria-hidden="true" onclick="closemenu()" id="close-now"></i>
+			</div>	
+			<div class="tm-left-inner-container" id="menubar">
 				<ul class="nav nav-stacked templatemo-nav">
 					<li><a href="{% url 'home' %}"><i class="fa fa-home fa-medium"></i>Home</a></li>
 					<li><a href="{% url 'car' %}"><i class="fa fa-car fa-medium"></i>Cars</a></li>
@@ -52,16 +58,37 @@
 				
 				<footer>
 					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-copyright">Copyright &copy; UmarSafaris2021</p>
-					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-social">
+					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-social footico">
 						<a href="#"><i class="fa fa-facebook fa-medium"></i></a>
+						<a href="https://instagram.com/umarsafaris.kenya?utm_medium=copy_link" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
 						<a href="#"><i class="fa fa-twitter fa-medium"></i></a>
-						<a href="#"><i class="fa fa-google-plus fa-medium"></i></a>
-						<a href="#"><i class="fa fa-youtube fa-medium"></i></a>
-						<a href="#"><i class="fa fa-linkedin fa-medium"></i></a>
+						<a href="#"><i class="fa fa-envelope fa-medium"></i></a>
 					</p>
 				</footer>
 			</div>	
 		</div> <!-- right section -->
 	</div>	
+	<script>
+        function displaymenu(){
+            var boxcheck = document.getElementById('checked-now').checked 
+            ul =document.getElementById('menubar')
+            ul.style.display = "block"
+            x = document.getElementById('open-now')
+            x.style.display = "none"
+            i = document.getElementById('close-now')
+            i.style.display = "block"
+            i.style.color = "#000000"
+        }
+        function closemenu(){
+            document.getElementById('checked-now').checked = false
+            ul =document.getElementById('menubar')
+            ul.style.display = "none"
+            i = document.getElementById('close-now')
+            i.style.display = "none"
+            x = document.getElementById('open-now')
+            x.style.display = "flex"
+        }
+        
+    </script>
 </body>
 </html>

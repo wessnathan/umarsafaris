@@ -1,5 +1,7 @@
 {% extends 'safarisapp/base.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
+
 
 {% block links %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -37,11 +39,25 @@
                     <div class="col-md-12">
                         <img src="" alt="image of prado" style="width: 100%; height:90%;">
                     </div>
+                    
                     <div class="col-md-12">
                         <form action="{% url 'client_booking_details' %}" method="POST">
                             {% csrf_token %}
-                            {{ form.as_p }}
-                            <input type="submit" value="Submit">
+                            {{ form.Name|as_crispy_field }}
+                            {{ form.Email|as_crispy_field }}
+                            {{ form.ID_No|as_crispy_field }}
+                            {{ form.Tel|as_crispy_field }}
+                            
+                            <div class="form-row">
+                                <div class="form-group col-md-10 mb-0">
+                                    {{ form.Check_In|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-10 mb-0">
+                                    {{ form.Check_Out|as_crispy_field }}
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Book Now</button>
                         </form>
                     </div>
                 </div>

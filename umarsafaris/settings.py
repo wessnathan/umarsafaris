@@ -25,13 +25,14 @@ SECRET_KEY = 'fpmdmr6bzr8(-kqj^a7351az@&7!p&ipq@iqr2hp0sd@oxr71i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True #changed Debug to false
 
-ALLOWED_HOSTS = ['umarsafaris.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['umarsafaris.herokuapp.com', '127.0.0.1', '192.168.43.147']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'safarisapp.apps.SafarisappConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     
     'storages',
     'safarisapp.Booking',
+    
 ]
 
 MIDDLEWARE = [
@@ -137,6 +139,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage' #added
 
 
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"), #changed from static to staticfiles
 ]
@@ -167,3 +170,6 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

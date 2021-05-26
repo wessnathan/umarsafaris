@@ -108,20 +108,10 @@ def  booking_apartments(request):
         
         if form.is_valid:
             
-            #Name = form.cleaned_data.get('Name')
-            #Email = form.cleaned_data.get('Email')
-            #ID_No = form.cleaned_data.get('ID_No')
-            #Tel = form.cleaned_data.get('Tel')
-            Name = request.POST['Name']
-            Email = request.POST['Email']
-            ID_No = request.POST['ID_No']
-            Tel = request.POST['Tel']
-            #Check_In = request.POST['Check_In']
-            #Check_Out = request.POST['Check_Out']
             
             form.save()
             
-            return render(request, 'forms/thanks.html', {'Name':Name, 'Email':Email, 'ID_No':ID_No, 'Tel':Tel})
+            return redirect('client_booking_details')
     else:
         form = aptbookingForm()
     return render(request, 'forms/apartment_booking_form.html', {'form':form})

@@ -1,0 +1,51 @@
+
+.footico i{
+    border: 1px solid silver;
+    height: 40px;
+    width: 40px;
+    padding: 13px;
+    border-radius: 50%;
+    color: #ffffff;
+}
+
+.fa-facebook{
+    background: #1b62f1;
+}
+
+.fa-facebook:hover{
+    color: #1b62f1;
+    background: transparent;
+    border-radius: 1px solid #1b62f1;
+    
+}
+
+.fa-instagram{
+    background: linear-gradient(#e91e63, #ab47bc);
+}
+
+.fa-instagram:hover{
+    background: transparent;
+    color: #e91e63;
+    border-radius: 1px solid #e91e63;
+}
+
+.fa-twitter{
+    background: #00e5ff;
+}
+
+.fa-twitter:hover{
+    background: transparent;
+    color: #00e5ff;
+    border-radius: 1px solid #00e5ff;
+}
+
+.fa-envelope{
+    background: linear-gradient(#00c853, #ff9100);
+}
+
+.fa-envelope:hover{
+    background: transparent;
+    color: #00c853;
+    border-radius: 1px solid #00c853;
+}
+

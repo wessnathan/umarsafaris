@@ -34,6 +34,48 @@ p{
     font-size: 12px;
 }
 
+label{
+    float: left;
+}
+
+#div_id_Check_In{
+    display: block;
+}
+#div_id_Check_In label{
+    width: 100%;
+    display: flex;
+    float: left;
+}
+
+#div_id_Check_In select{
+    display: flex;
+    flex-direction: row;
+    float: left;
+    width: auto;
+    margin: 5px;
+}
+#div_id_Check_Out{
+    display: block;
+}
+#div_id_Check_Out label{
+    width: 100%;
+    display: flex;
+    float: left;
+}
+
+#div_id_Check_Out select{
+    display: flex;
+    flex-direction: row;
+    float: left;
+    width: auto;
+    margin: 5px;
+}
+
+button{
+    margin: 20px;
+    width: 50%;
+}
+
 .circle{
     width: 40px;
     height: 40px;
