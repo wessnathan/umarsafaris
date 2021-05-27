@@ -33,6 +33,8 @@ ALLOWED_HOSTS = ['umarsafaris.herokuapp.com', '127.0.0.1', '192.168.43.147']
 INSTALLED_APPS = [
     'safarisapp.apps.SafarisappConfig',
     'crispy_forms',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +47,8 @@ INSTALLED_APPS = [
     'safarisapp.Booking',
     
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

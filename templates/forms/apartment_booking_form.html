@@ -39,9 +39,9 @@
                     <div class="col-md-12">
                         <img src="" alt="image of prado" style="width: 100%; height:90%;">
                     </div>
-                    
+                    <!-- url 'client_booking_details' -->
                     <div class="col-md-12">
-                        <form action="{% url 'client_booking_details' %}" method="POST">
+                        <form action="{% url 'book-apt' %}" method="POST">
                             {% csrf_token %}
                             {{ form.Name|as_crispy_field }}
                             {{ form.Email|as_crispy_field }}

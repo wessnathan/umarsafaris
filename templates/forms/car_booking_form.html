@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/55c80e42ff.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'safarisapp/apartments_booking.css' %}">
     <link rel="stylesheet" href="{% static 'safarisapp/rm.css' %}">
-    <title>Umar Apartments Booking</title>
+    <title>Umar Car Booking</title>
 {% endblock links %}
 
 {% block content %}
@@ -41,7 +41,7 @@
                     </div>
                     
                     <div class="col-md-12">
-                        <form action="{% url 'book-apt' %}" method="POST">
+                        <form action="{% url 'client_booking_details' %}" method="POST">
                             {% csrf_token %}
                             {{ form.Name|as_crispy_field }}
                             {{ form.Email|as_crispy_field }}
@@ -98,7 +98,7 @@
                         <footer style="padding: 3% 19%;">
                             <div class="dflex flex-row px-4">
                                 <i class="fa fa-facebook circle" aria-hidden="true"></i>
-                                <i class="fa fa-instagram circle" aria-hidden="true"></i>
+                                <a href="https://instagram.com/umarsafaris.kenya?utm_medium=copy_link" target="_blank"><i class="fa fa-instagram circle" aria-hidden="true"></i></a>
                                 <i class="fa fa-youtube-play circle" aria-hidden="true"></i>
                                 <i class="fa fa-envelope-open circle" aria-hidden="true"></i>
                             </div>

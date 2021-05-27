@@ -2,11 +2,11 @@ from django import forms
 from django.http import request
 from umarsafaris.settings import EMAIL_HOST_USER
 from django.shortcuts import render, redirect
-from django.core.mail import send_mail, EmailMultiAlternatives
+from django.core.mail import message, send_mail, EmailMultiAlternatives
 from django.template.loader import get_template
 from django.utils.html import strip_tags
 from django.conf import settings
-#from django.contrib import messages
+from django.contrib import messages
 #from django.http import HttpResponse
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -103,14 +103,35 @@ def booking_details(request):
 def  booking_apartments(request):
     
     if request.method == 'POST':
-        todays_date = datetime.date.today()
-        form = aptbookingForm(request.POST, initial={'Check_In':todays_date})
+        form = aptbookingForm(request.POST)
         
-        if form.is_valid:
+        if form.is_valid():
+            Name = form.cleaned_data.get('Name')
+            Email = form.cleaned_data.get('Email')
+            ID_No = form.cleaned_data.get('ID_No')
+            Tel = form.cleaned_data.get('Tel')
+            date_in = form.cleaned_data.get('Check_In')
+            date_out = form.cleaned_data.get('Check_Out')
+            
+            title = "Thank you for booking with UmarSafaris. Here are Your Booking Details"
+            
+            message1 = str( date_in)
+            message2 = str( date_out)
+            msg_list = [Name, Email, ID_No, Tel, message1, message2]
+            message = str(msg_list)
+                        
             
             
             form.save()
+            #send mail to the client on booking details
+            send_mail(
+                title,
+                message,
+                settings.EMAIL_HOST_USER,
+                [Email]
+            )
             
+            messages.success(request, f'{Name} thank you for booking with UmarSafaris, Check your Email Shortly. If you dont receive any email within the next 10mins please reach our support team. ')
             return redirect('client_booking_details')
     else:
         form = aptbookingForm()

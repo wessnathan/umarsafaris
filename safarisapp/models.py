@@ -116,6 +116,9 @@ class Current_user_booking(models.Model):
     class Meta:
         verbose_name_plural = " Renting Client Details"
         
+    def get_absolute_url(self):
+        return reverse('Current_user_booking', args=(self.pk,))
+        
     def __str__(self):
         return f'{self.First_Name} {self.Second_Name} has rented {self.carpicked} from {self.Booking_from} till {self.Booking_to}'
         
@@ -143,6 +146,9 @@ class About(models.Model):
     class Meta:
         verbose_name_plural = " About Bussiness and Location"
         
+    def get_absolute_url(self):
+        return reverse('About', args=(self.pk,))
+        
 class Ourteam(models.Model):
     name = models.CharField(max_length=15)
     photo = models.ImageField(upload_to='Teamphotos')
@@ -154,6 +160,9 @@ class Ourteam(models.Model):
         
     def __str__(self):
         return f'{self.email} posted on {self.dates}'
+    
+    def get_absolute_url(self):
+        return reverse('Ourteam', args=(self.pk,))
         
         
 class Contact(models.Model):

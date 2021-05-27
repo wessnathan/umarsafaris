@@ -9,7 +9,7 @@
     <title>Apartments Details </title>
 {% endblock links %}
 
-{% block content %}
+{% block detail %}
     <div class="apartment-content">
         <div class="photos-column">
             <a href="#{{object.Photo1.url}}" data-lightbox="mygallery"> <img src="{{object.Photo1.url}}" alt=""></a>
@@ -36,4 +36,4 @@
         </div>
     </div>
 
-{% endblock content %}
+{% endblock detail %}
