@@ -106,6 +106,7 @@ def  booking_apartments(request):
         form = aptbookingForm(request.POST)
         
         if form.is_valid():
+            Apartments_Available = form.cleaned_data.get('Apartments_Available')
             Name = form.cleaned_data.get('Name')
             Email = form.cleaned_data.get('Email')
             ID_No = form.cleaned_data.get('ID_No')
@@ -117,7 +118,7 @@ def  booking_apartments(request):
             
             message1 = str( date_in)
             message2 = str( date_out)
-            msg_list = [Name, Email, ID_No, Tel, message1, message2]
+            msg_list = [Name, Apartments_Available, Email, ID_No, Tel, message1, message2]
             message = str(msg_list)
                         
             
@@ -131,7 +132,7 @@ def  booking_apartments(request):
                 [Email]
             )
             
-            messages.success(request, f'{Name} thank you for booking with UmarSafaris, Check your Email Shortly. If you dont receive any email within the next 10mins please reach our support team. ')
+            messages.success(request, f'{Name} thank you for booking with UmarSafaris,\\n You have booked Apartment {Apartments_Available}\n Available from {date_in} to {date_out} \\n You will Receive an Email shortly containing your booking infomation. If you don\'t receive any email within the next 10mins please reach our support team. Other Details\n Phone Number:{Tel}\n ID_No\Passport No:{ID_No}')
             return redirect('client_booking_details')
     else:
         form = aptbookingForm()

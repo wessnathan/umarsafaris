@@ -21,9 +21,9 @@ class ContactAdmin(admin.ModelAdmin):
     search_fields = ('fname', 'tel', 'email', 'date')
     
 class Client_Booking_ApartmentFormAdmin(admin.ModelAdmin):
-    list_display = ('Name', 'ID_No', 'Email', 'Tel')
+    list_display = ('Name', 'ID_No', 'Email', 'Tel', 'Apartments_Available')
     list_filter = ('Name', 'ID_No')
-    search_fields = ('Name', 'ID_No', 'Email', 'Tel', 'Check_In', 'Check_Out')
+    search_fields = ('Name', 'ID_No', 'Email', 'Tel', 'Check_In', 'Check_Out', 'Apartments_Available')
     
 class Current_user_bookingAdmin(admin.ModelAdmin):
     list_display = ('First_Name', 'Second_Name', 'ID_No', 'carpicked', 'Email', 'Contact' )

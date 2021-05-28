@@ -6,8 +6,15 @@ import datetime
 
 
 class Client_Booking_ApartmentForm(models.Model):
+    Apartment_Choices = (
+        ('DEL', 'DL1'),
+        ('Rook', 'RK1'),
+        ('Bishop', 'BP1'),
+        ('Castle', 'CT1'),
+    )
     Name = models.CharField(max_length=100)
     Email = models.EmailField()
+    Apartments_Available = models.CharField(max_length=10, choices=Apartment_Choices, default='Available')
     ID_No = models.CharField(max_length=30)
     Tel =models.PositiveIntegerField()
     Check_In = models.DateTimeField()
