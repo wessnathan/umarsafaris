@@ -6,20 +6,28 @@ from django.utils import timezone
 from django.utils.text import slugify
 from django.urls import reverse
 from PIL import Image
-from django.forms import widgets
 import datetime
 
 
 class Apartmentsbase(models.Model):
-    Rooms = models.IntegerField()
+    Apartment_Choices = (
+        ('DEL', 'DL1'),
+        ('Rook', 'RK1'),
+        ('Bishop', 'BP1'),
+        ('Castle', 'CST1'),
+    )
+    Rooms = models.IntegerField(unique=True)
     Name = models.CharField(default='Room Name and building', max_length=150)
+    Category = models.CharField(max_length=11, choices=Apartment_Choices, default=0)
+    Beds = models.PositiveSmallIntegerField(default=0, max_length=1)
+    Description = models.TextField()
     Photo1 = models.ImageField(default='default.jpg', upload_to='apartments')
     Photo2 = models.ImageField(default='default.jpg', upload_to='apartments')
     Photo3 = models.ImageField(default='default.jpg', upload_to='apartments')
     Photo4 = models.ImageField(default='default.jpg', upload_to='apartments')
     Photo5 = models.ImageField(default='default.jpg', upload_to='apartments')
     slug = models.SlugField(default='0')
-    Description = models.TextField()
+    
     def __str__(self):
         return self.Rooms
     
@@ -51,19 +59,7 @@ class Apartmentsbase(models.Model):
     
     class Meta:
         verbose_name_plural = "Available apartments and Rooms"
-        
-
-
-class SliderImage(models.Model):
-    Background_Images = models.ImageField(default='default.jpg', upload_to='media/slider')
     
-    def save(self, *args, **kwargs):
-        super(SliderImage, self).save(*args, **kwargs)
-        
-    
-    
-class Cargallery(models.Model):
-    image = models.ImageField(default='default.jpg', upload_to='gallery')
     
     
 class Carfeatures(models.Model):

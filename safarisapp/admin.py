@@ -11,8 +11,8 @@ class CarfeaturesAdmin(admin.ModelAdmin):
     
 class ApartmentsbaseAdmin(admin.ModelAdmin):
     list_display = ('Name', 'Rooms',)
-    list_filter = ('Name', 'Rooms')
-    search_fields = ('Name', 'Rooms')
+    list_filter = ('Name', 'Rooms',)
+    search_fields = ('Name', 'Rooms',)
     prepopulated_fields = {"slug": ("Name",)}
     
 class ContactAdmin(admin.ModelAdmin):
@@ -21,9 +21,9 @@ class ContactAdmin(admin.ModelAdmin):
     search_fields = ('fname', 'tel', 'email', 'date')
     
 class Client_Booking_ApartmentFormAdmin(admin.ModelAdmin):
-    list_display = ('Name', 'ID_No', 'Email', 'Tel', 'Apartments_Available')
+    list_display = ('Name', 'ID_No', 'Email', 'Tel', 'Check_In', 'Check_Out')
     list_filter = ('Name', 'ID_No')
-    search_fields = ('Name', 'ID_No', 'Email', 'Tel', 'Check_In', 'Check_Out', 'Apartments_Available')
+    search_fields = ('Name', 'ID_No', 'Email', 'Tel', 'Check_In', 'Check_Out', )
     
 class Current_user_bookingAdmin(admin.ModelAdmin):
     list_display = ('First_Name', 'Second_Name', 'ID_No', 'carpicked', 'Email', 'Contact' )
@@ -46,7 +46,6 @@ admin.site.register(Carfeatures, CarfeaturesAdmin),
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Current_user_booking, Current_user_bookingAdmin),
 admin.site.register(Client_Booking_ApartmentForm, Client_Booking_ApartmentFormAdmin)
-admin.site.register(SliderImage)
 admin.site.register(About)
 admin.site.register(SendMessage)
 admin.site.register(Ourteam)

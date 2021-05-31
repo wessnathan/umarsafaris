@@ -1,17 +1,19 @@
+from safarisapp.Booking.apartments_booking import check_room_availability
 from django import forms
 from django.http import request
+from django.http.response import HttpResponse
 from umarsafaris.settings import EMAIL_HOST_USER
 from django.shortcuts import render, redirect
-from django.core.mail import message, send_mail, EmailMultiAlternatives
+from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import get_template
-from django.utils.html import strip_tags
 from django.conf import settings
 from django.contrib import messages
-#from django.http import HttpResponse
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from .models import Carfeatures, Apartmentsbase,  Contact, Current_user_booking, Ourteam, SendMessage
-from .forms import aptbookingForm
+from .forms import Client_Booking_ApartmentForm, aptbookingForm
+#from safarisapp.Booking.apartments_booking import check_room_availability
+from django.utils.html import strip_tags
 import datetime
 
 
@@ -114,17 +116,31 @@ def  booking_apartments(request):
             date_in = form.cleaned_data.get('Check_In')
             date_out = form.cleaned_data.get('Check_Out')
             
-            title = "Thank you for booking with UmarSafaris. Here are Your Booking Details"
+            room_list = Client_Booking_ApartmentForm.objects.filter(Apartments_Available='Apartments_Available')
+            room_available = []
+            
+            for rooms in room_list:
+                if check_room_availability(Apartments_Available, date_in, date_out):
+                    room_available.append(rooms)
+                    
+                    form.save()
+                    
+                else:
+                    return HttpResponse('The room has been booked for the period you entered. Please select another one')
+            
+            
+            
+            
+            #form.save()
+            #send mail to the client on booking details
+            
+            title = "Thank you for booking with UmarSafaris. Here is Your Booking Details"
             
             message1 = str( date_in)
             message2 = str( date_out)
             msg_list = [Name, Apartments_Available, Email, ID_No, Tel, message1, message2]
             message = str(msg_list)
-                        
             
-            
-            form.save()
-            #send mail to the client on booking details
             send_mail(
                 title,
                 message,
@@ -132,7 +148,7 @@ def  booking_apartments(request):
                 [Email]
             )
             
-            messages.success(request, f'{Name} thank you for booking with UmarSafaris,\\n You have booked Apartment {Apartments_Available}\n Available from {date_in} to {date_out} \\n You will Receive an Email shortly containing your booking infomation. If you don\'t receive any email within the next 10mins please reach our support team. Other Details\n Phone Number:{Tel}\n ID_No\Passport No:{ID_No}')
+            messages.success(request, f'{Name} thank you for booking with UmarSafaris,\n You have booked Apartment {Apartments_Available}\n Available from {date_in} to {date_out} \\n You will Receive an Email shortly containing your booking infomation. If you don\'t receive any email within the next 10mins please reach our support team. Other Details\n Phone Number:{Tel}\n ID_No\Passport No:{ID_No}')
             return redirect('client_booking_details')
     else:
         form = aptbookingForm()
