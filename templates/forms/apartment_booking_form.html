@@ -40,18 +40,25 @@
                     <div class="col-md-12">
                         <form action="{% url 'book-apt' %}" method="POST">
                             {% csrf_token %}
-                            {{ form.Apartments_Available|as_crispy_field }}
+                            {{ form.Apartment|as_crispy_field }}
                             {{ form.Name|as_crispy_field }}
                             {{ form.Email|as_crispy_field }}
-                            {{ form.ID_No|as_crispy_field }}
-                            {{ form.Tel|as_crispy_field }}
+                            {{ form.ID_No|as_crispy_field }} {{ form.Tel|as_crispy_field }}
+                           
                             
                             <div class="form-row">
-                                <div class="form-group col-md-10 mb-0">
+                                <div class="form-group col-md-8 mb-0">
                                     {{ form.Check_In|as_crispy_field }}
                                 </div>
-                                <div class="form-group col-md-10 mb-0">
+                                <div class="form-group col-md-4 mb-0">
+                                    {{ form.Check_In_Time|as_crispy_field }}
+                                </div>
+                                
+                                <div class="form-group col-md-8 mb-0">
                                     {{ form.Check_Out|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-4 mb-0">
+                                    {{ form.Check_Out_Time|as_crispy_field }}
                                 </div>
                             </div>
                             

@@ -1,3 +1,4 @@
+import apartment
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -16,6 +17,8 @@ sitemaps = {
 
 urlpatterns = [
     path('', include('safarisapp.urls')),
+    path('cars/', include('carbooking.urls')),
+    path('apartments/', include('apartment.urls')),
     path('admin/', admin.site.urls),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
 ]

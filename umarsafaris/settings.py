@@ -32,6 +32,8 @@ ALLOWED_HOSTS = ['umarsafaris.herokuapp.com', '127.0.0.1', '192.168.43.147']
 
 INSTALLED_APPS = [
     'safarisapp.apps.SafarisappConfig',
+    'apartment.apps.ApartmentConfig',
+    'carbooking.apps.CarbookingConfig',
     'crispy_forms',
     'django.contrib.sites',
     'django.contrib.sitemaps',
@@ -92,8 +94,18 @@ WSGI_APPLICATION = 'umarsafaris.wsgi.application'
 
 DATABASES = {
     'default': {
+        
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'safarisapp',
+        'USER': 'root',
+        'PASSWORD': 'nate',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    },
+    
+    'development':{
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
     }
 }
 

@@ -8,13 +8,12 @@
     <script src="https://kit.fontawesome.com/55c80e42ff.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'safarisapp/apartments_booking.css' %}">
     <link rel="stylesheet" href="{% static 'safarisapp/rm.css' %}">
-    <title>Umar Car Booking</title>
+    <title>UmarSafaris Car Booking</title>
 {% endblock links %}
 
 {% block content %}
     <div class="container1B">
         <div class="outer-panel text-center rounded">
-
             <div class="inner-panel rounded">
                 <div class="row">
                     <div class="col-md-12">
@@ -22,7 +21,7 @@
                         <h6>Thank you for booking with Us. We highly appreciate.</h6>
                     </div>
                     <div class="col-md-12">
-                        <img src="./car3.jpg" alt="image of prado" style="width: 100%; height:90%;">
+                        <img src="../../static/safarisapp/images/pexels-jean-van-der-meulen-1457842.jpg" alt="image of prado" style="width: 100%; height:90%;">
                     </div>
                     <div class="col-md-12">
                         <p>
@@ -33,27 +32,34 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="mt-3">UmarSafaris Apartment Booking</div>
-                        <h6>Thank you for booking with Us. We highly appreciate.</h6>
-                    </div>
-                    <div class="col-md-12">
-                        <img src="" alt="image of prado" style="width: 100%; height:90%;">
+                        <div class="mt-3"><h6>UmarSafaris Car Booking Booking</h6></div>
                     </div>
                     
+                    <!-- Car Booking form -->
                     <div class="col-md-12">
-                        <form action="{% url 'client_booking_details' %}" method="POST">
+                        <form action="{% url 'user-booking' %}" method="POST">
+                            
                             {% csrf_token %}
-                            {{ form.Name|as_crispy_field }}
+                            {{ form.carpicked|as_crispy_field }}
+                            {{ form.First_Name|as_crispy_field }}
+                            {{ form.Second_Name|as_crispy_field }}
                             {{ form.Email|as_crispy_field }}
-                            {{ form.ID_No|as_crispy_field }}
-                            {{ form.Tel|as_crispy_field }}
+                            {{ form.ID_No|as_crispy_field }} 
+                            {{ form.Contact|as_crispy_field }}
                             
                             <div class="form-row">
-                                <div class="form-group col-md-10 mb-0">
+                                <div class="form-group col-md-8 mb-0">
                                     {{ form.Check_In|as_crispy_field }}
                                 </div>
-                                <div class="form-group col-md-10 mb-0">
+                                <div class="form-group col-md-4 mb-0">
+                                    {{ form.Check_In_Time|as_crispy_field }}
+                                </div>
+                                
+                                <div class="form-group col-md-8 mb-0">
                                     {{ form.Check_Out|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-md-4 mb-0">
+                                    {{ form.Check_Out_Time|as_crispy_field }}
                                 </div>
                             </div>
                             
@@ -63,16 +69,6 @@
                 </div>
                 <hr>
                 <div class="row">
-                    
-                    <div class="col-md-10">
-                        <div class="px-4">
-                            <h6>Booking Details</h6>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing el
-                            it. Nisi facere rem ullam fuga voluptatem, eligendi similique animi deleniti mollitia nulla ratione deserunt harum tenetur re
-                            iciendis, voluptates asperiores esse, repellat placeat.
-                        </div>
-                    </div>
-                    
                     <div class="col-md-10">
                         <div class="px-4">
                             <h6>Umar safaris Servives</h6>
@@ -98,7 +94,7 @@
                         <footer style="padding: 3% 19%;">
                             <div class="dflex flex-row px-4">
                                 <i class="fa fa-facebook circle" aria-hidden="true"></i>
-                                <a href="https://instagram.com/umarsafaris.kenya?utm_medium=copy_link" target="_blank"><i class="fa fa-instagram circle" aria-hidden="true"></i></a>
+                                <a href="https://www.instagram.com/umarsafaris.kenya/?utm_medium=copy_link" target="_blank" class="icon brands style2 fa-instagram"><i class="fa fa-instagram circle" aria-hidden="true"></i></a>
                                 <i class="fa fa-youtube-play circle" aria-hidden="true"></i>
                                 <i class="fa fa-envelope-open circle" aria-hidden="true"></i>
                             </div>
