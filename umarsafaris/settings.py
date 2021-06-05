@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     
     'storages',
     'apartment.apartment_booking',
+    'carbooking.car_booking',
     
 ]
 
@@ -93,20 +94,12 @@ WSGI_APPLICATION = 'umarsafaris.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'safarisapp',
-        'USER': 'root',
-        'PASSWORD': 'nate',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    },
-    
-    'development':{
+    'default':{
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
     }
+    
+    
 }
 
 

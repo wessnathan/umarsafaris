@@ -21,10 +21,10 @@ isort==5.5.3
 Jinja2==2.11.2
 jmespath==0.10.0
 lazy-object-proxy==1.4.3
+mysql-connector==2.2.9
 mysql-connector-python==8.0.21
 mysqlclient==2.0.1
-numpy==1.19.4
-Pillow==7.2.0
+numpy==1.19.4Pillow==7.2.0
 protobuf==3.13.0
 psycopg2==2.8.6
 pylint-django==2.3.0

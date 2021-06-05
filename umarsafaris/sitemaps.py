@@ -1,5 +1,7 @@
 from django.contrib.sitemaps import Sitemap
 from django.shortcuts import reverse
+from apartment.models import Umarsafarisrooms
+from carbooking.models import Cars_Available
 from safarisapp.models import *
 
 class HomeViewSitemap(Sitemap):
@@ -25,7 +27,7 @@ class CarsDetailViewSitemap(Sitemap):
     priority = 0.5
     
     def items(self):
-        return Carfeatures.objects.all() # path's name
+        return Cars_Available.objects.all() # path's name
     
     def lastmod(self, obj):
         return obj.publish 
@@ -35,7 +37,7 @@ class ApartmentsDetailViewSitemap(Sitemap):
     priority = 0.5
     
     def items(self):
-        return Apartmentsbase.objects.all() # path's name
+        return Umarsafarisrooms.objects.all() # path's name
     
     def lastmod(self, obj):
         return obj.slug

@@ -39,23 +39,22 @@
                     <!-- Apartment booking form -->
                     <div class="col-md-12">
                         {% if messages %}
-                            <h6>Room Already Booked</h6>
+                            <h6>Room Already Booked Please Select Another One</h6>
                                 <ul class="messages">
                                     {% for message in messages %}
                                         <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
                                     {% endfor %}
                                 </ul>
-                        {% endif %}
+                            {% endif %}
                         <form action="{% url 'book-apt' %}" method="POST">
                             {% csrf_token %}
                             {{ form.Apartment|as_crispy_field }}
                             {{ form.Name|as_crispy_field }}
                             {{ form.Email|as_crispy_field }}
-                            {{ form.ID_No|as_crispy_field }}
-                            {{ form.Tel|as_crispy_field }}
+                            {{ form.ID_No|as_crispy_field }} {{ form.Tel|as_crispy_field }}
+                            
                             
                             <div class="form-row">
-                                
                                 <div class="form-group col-md-8 mb-0">
                                     {{ form.Check_In|as_crispy_field }}
                                 </div>
@@ -69,6 +68,7 @@
                                 <div class="form-group col-md-4 mb-0">
                                     {{ form.Check_Out_Time|as_crispy_field }}
                                 </div>
+                            </div>
                             
                             <button type="submit" class="btn btn-primary">Book Now</button>
                         </form>
@@ -100,10 +100,10 @@
                         <h6>Follows us on Social Media at!!!</h6>
                         <footer style="padding: 3% 19%;">
                             <div class="dflex flex-row px-4">
-                                <i class="fa fa-facebook circle" aria-hidden="true"></i>
-                                <a href="#"><i class="fa fa-instagram circle" aria-hidden="true"></i></a>
-                                <i class="fa fa-youtube-play circle" aria-hidden="true"></i>
-                                <i class="fa fa-envelope-open circle" aria-hidden="true"></i>
+                                <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook circle" aria-hidden="true"></i></a>
+                                <a href="https://www.instagram.com/umarsafaris.kenya/?utm_medium=copy_link" target="_blank"><i class="fa fa-instagram circle" aria-hidden="true"></i></a>
+                                <a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube-play circle" aria-hidden="true"></i></a>
+                                <a href="{% url 'contact' %}"><i class="fa fa-envelope-open circle" aria-hidden="true"></i></a>
                             </div>
                             <p>Thank you for using our service. We hope to see you back soon😊</p>
                         </footer>
