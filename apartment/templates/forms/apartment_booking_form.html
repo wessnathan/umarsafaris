@@ -38,6 +38,14 @@
                     
                     <!-- Apartment booking form -->
                     <div class="col-md-12">
+                        {% if messages %}
+                            <h6>Room Already Booked</h6>
+                                <ul class="messages">
+                                    {% for message in messages %}
+                                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                        {% endif %}
                         <form action="{% url 'book-apt' %}" method="POST">
                             {% csrf_token %}
                             {{ form.Apartment|as_crispy_field }}

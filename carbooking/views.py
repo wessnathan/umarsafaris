@@ -78,10 +78,10 @@ def check_valid_data(request):
 
 class CarspageListView(ListView):
     model = Cars_Available
-    template_name = 'carbooking/carfeatures_list.html'
+    template_name = 'carbooking/cars_available_list.html'
     context_object_name = 'carpage'
     
     
 class CarDetailView(DetailView):
     model = Cars_Available
-    template_name = 'carbooking/carfeatures_detail.html'
+    template_name = 'carbooking/cars_available_detail.html'

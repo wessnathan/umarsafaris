@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'tz_detect',
     
     'storages',
-    'safarisapp.Booking',
+    'apartment.apartment_booking',
     
 ]
 

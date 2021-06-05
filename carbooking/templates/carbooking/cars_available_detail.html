@@ -49,7 +49,7 @@
                             {{object.carpolicy}}
                         </div>
                         <div class="p2">
-                            <button><a href="#down">Book Now</a></button>
+                            <button><a href="{% url 'user-booking' %}">Book Now</a></button>
                             
                         </div>
                     </div>
@@ -59,47 +59,7 @@
         </main>
         <section>
             <div class="form-to-fill" id="down">
-                <form action="{% url 'user-booking' %}" method="POST">
-                    {% csrf_token %}
-                    <h2>Your Booking Details</h2>
-                    <div class="detail">
-                        <input type="text" name="First_Name" placeholder="First Name">
-                        <input type="text" name="Second_Name" placeholder="Second Name">
-                    </div>
-                    <div class="car-to-rent">
-                        <label for="avail-cars">Chose the car you are intrested in</label><br>
-                        <select name="cars-available" id="avail-cars">
-                            <option value="">**Please choose an option**</option>
-                            <option value="{{ object.name }}">{{ object.name }}</option>
-                        </select>
-                    </div>
-                    <div class="id cred">
-                        <i class="fa fa-id-card" aria-hidden="true"></i>
-                        <input type="text" name="ID_No" placeholder="ID/Passport Number" required>
-                        
-                    </div>
-                    <div class="email cred">
-                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                        <input type="email" name="Email" placeholder="Enter Your Email" required>
-                    </div>
-                    <div class="contact cred">
-                        <i class="fa fa-phone-square" aria-hidden="true"></i>
-                        <input type="tel" name="Contact" placeholder="Enter Your Contact" required>
-                    </div>
-                    <div class="booking-period">
-                        <label for="p-from">From</label>
-                        <input type="date" name="Booking_from" placeholder="Rent From" id="p-from">
-                        <label for="p-to">To</label>
-                        <input type="date" name="Booking_to" placeholder="Return Date" id="p-to">
-                    </div>
-                    <div class="price">
-                        <label for="rent-period">Total Cost for Period</label>
-                        <p>
-                            15,000
-                        </p>
-                    </div>
-                    <button type="submit">Book Now</button>
-                </form>
+                
                 
             </div>
             <div class="summary" id="test">

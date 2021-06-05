@@ -10,7 +10,7 @@ class UmarsafarisroomsAdmin(admin.ModelAdmin):
     
     
 class Booking_ApartmentsFormAdmin(admin.ModelAdmin):
-    list_display = ('Name', 'ID_No', 'Email', 'Tel', 'Check_In', 'Check_In_Time', 'Check_Out', 'Check_Out_Time')
+    list_display = ('Name', 'Apartment', 'Email', 'Tel', 'Check_In', 'Check_In_Time', 'Check_Out', 'Check_Out_Time')
     list_filter = ('ID_No', 'Email',)
     search_fields = ('Name', 'ID_No', 'Email', 'Tel','Rooms', 'Check_In', 'Check_In_Time', 'Check_Out', 'Check_Out_Time')
 
