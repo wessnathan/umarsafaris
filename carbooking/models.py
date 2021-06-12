@@ -64,6 +64,6 @@ class Current_caruser_booking(models.Model):
         verbose_name_plural = " Booked Cars Client Information"
         
     def __str__(self):
-        return f'{self.First_Name} {self.Second_Name} has rented {self.carpicked} from {self.Booking_from} till {self.Booking_to}'
+        return f'{self.First_Name} {self.Second_Name} has rented {self.carpicked} from {self.Check_Out} {self.Check_In_Time} till {self.Check_Out} {self.Check_Out_Time}'
         
         

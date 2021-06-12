@@ -43,7 +43,7 @@ def  booking_apartments(request):
             
             print(room_status, date_in, date_out)
             
-            if room_status == True:
+            if room_status == True or room_status == None:
                 
                 form.save()
                     
@@ -70,7 +70,6 @@ def  booking_apartments(request):
             
             else:
                 messages.warning(request, f' {Name}, {Apartment} has been booked for that particular period. Please select another one .Thank you')
-                #return HttpResponse( f' {Name}, {Apartment} has been booked for that particular period. Please select another one .Thank you')
                 return redirect('book-apt')
             
     else:

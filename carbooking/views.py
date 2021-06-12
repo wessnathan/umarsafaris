@@ -35,10 +35,12 @@ def check_valid_data(request):
             form.save(commit=False)
             
             selected_car = find_car_choice_id(carpicked)
+            print(selected_car, Check_In, Check_Out, carpicked)
             
             car_status = is_car_available_now(selected_car, Check_In, Check_Out)
+            print(car_status)
             
-            if car_status == True:
+            if car_status == True or car_status == None:
                 
                 form.save()
                 
@@ -46,6 +48,8 @@ def check_valid_data(request):
                 time_in_n = str(Check_In_Time)
                 date_out = str(Check_Out)
                 time_out_n = str(Check_Out_Time)
+                
+                print(time_in_n, time_out_n)
                 
                 #email template to send email to user
                 

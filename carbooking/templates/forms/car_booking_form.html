@@ -38,6 +38,7 @@
                     <!-- Car Booking form -->
                     <div class="col-md-12">
                         <form action="{% url 'user-booking' %}" method="POST">
+                            {% csrf_token %}
                             {% if messages %}
                                 <h6>Cars Has Already Been Rented Please Select Another One</h6>
                                 <ul class="messages">
@@ -47,7 +48,7 @@
                                 </ul>
                             {% endif %}
                             
-                            {% csrf_token %}
+                            
                             {{ form.carpicked|as_crispy_field }}
                             {{ form.First_Name|as_crispy_field }}
                             {{ form.Second_Name|as_crispy_field }}
