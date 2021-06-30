@@ -1,0 +1,39 @@
+body {
+
+    color: #333;
+    background: #E5F9E0;
+    
+}
+
+.login #container {
+    width: auto;
+    max-width: 480px;
+    margin: 50px auto;
+    border: 1px solid #002626;
+    border-radius: 7px;
+}
+
+#branding h1 {
+    color: #ffffff;
+    
+}
+
+#header{
+    background: #002626;
+}
+
+.form-row input[type=text], 
+.form-row input[type=password], 
+.form-row input[type=email], .form-row input[type=url], 
+.form-row input[type=tel], .form-row input[type=number], 
+.form-row textarea, .form-row select, .form-row .vTextField {
+
+    width: 100%;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #002626;
+    padding: 10px 0;
+    width: 100%;
+    
+}

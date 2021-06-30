@@ -35,8 +35,8 @@ h2 { font-size: 24px; }
 
 
 .black-bg {
-	color: white;
-	background: linear-gradient(#33eaff, #8561c5);
+	color: #000;
+	background: linear-gradient(315deg, #EBF2FA, #fff);
 }
 .white-bg {	background-color: white; }
 .tm-left-inner-container { margin-right: 30px; }
@@ -99,14 +99,14 @@ h2 { font-size: 24px; }
 .templatemo-nav>li>a {
 	border: none;
 	border-radius: 8px;
-	color: white;
+	color: #000;
 	padding: 15px 50px;
 	margin-bottom: 20px;
 	transition: background-color 0.3s;
 }
 .templatemo-nav>li>a:hover, .templatemo-nav>li>a:focus, .templatemo-nav>li>a.active {
-	background-color: #fff;
-	color: #000;
+	background-color: #000;
+	color: #fff;
 	font-weight: 700;
 }
 .templatemo-nav>li>a>.fa { margin-right: 10px; }
