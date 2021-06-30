@@ -26,6 +26,7 @@ class Umarsafarisrooms(models.Model):
     Photo4 = models.ImageField(default='default.jpg', upload_to='apartments')
     Photo5 = models.ImageField(default='default.jpg', upload_to='apartments')
     slug = models.SlugField(default='0')
+    Room_details = models.CharField(max_length=300, default=' ')
     
     def __str__(self):
         return f'{self.Name} type {self.Rooms} has {self.Beds}'

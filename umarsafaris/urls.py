@@ -7,6 +7,10 @@ from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import *
 
+admin.site.site_header = "Umar Safaris"
+admin.site.site_title = "Welcome To UmarSafaris ☺☺"
+admin.site.index_title = "Welcome to Your Portal"
+
 sitemaps = {
     'home': HomeViewSitemap,
     'apartments':ApartmentsViewSitemap,
@@ -26,6 +30,4 @@ urlpatterns = [
 urlpatterns += [ path(r'^tz_detect/', include('tz_detect.urls')),]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-
-
-#urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

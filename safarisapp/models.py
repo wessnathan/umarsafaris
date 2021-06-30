@@ -6,6 +6,18 @@ from django.urls import reverse
 from PIL import Image
 
 
+class ImagesOnHome(models.Model):
+    title = models.CharField(max_length=100, default=' ')
+    psg = models.CharField(max_length=200, default=' ')
+    imghome = models.ImageField(upload_to='safarisapp/images/gallery/fulls')
+    
+    class Meta:
+        verbose_name_plural = "Images and Information on the first page"
+        
+    def __str__(self):
+        return self.title
+
+
 class SendMessage(models.Model):
     mesg = models.TextField()
     profile = models.ImageField(upload_to='userfeedback_profile')

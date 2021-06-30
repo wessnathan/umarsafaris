@@ -1,10 +1,11 @@
+from django.db import models
 from django.http.response import HttpResponse
 from umarsafaris.settings import EMAIL_HOST_USER
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.conf import settings
 from django.views.generic.list import ListView
-from safarisapp.models import Contact, Ourteam, SendMessage
+from safarisapp.models import Contact, Ourteam, SendMessage, ImagesOnHome
 
 
 def home(request):
@@ -46,4 +47,9 @@ class AboutListView(ListView):
     template_name = 'safarisapp/ourteam_list.html'
     context_object_name = 'team'
 
+
+class ImageInHomeListView(ListView):
+    models = ImagesOnHome
+    template_name = 'safarisapp/index.html'
+    context_object_name = 'homephoto'
 

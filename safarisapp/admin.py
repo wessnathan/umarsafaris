@@ -27,4 +27,5 @@ admin.site.register(Contact, ContactAdmin)
 admin.site.register(About)
 admin.site.register(SendMessage)
 admin.site.register(Ourteam)
+admin.site.register(ImagesOnHome)
 

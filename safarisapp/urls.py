@@ -7,5 +7,6 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('testimonial/', TestimonialListView.as_view(), name='testimonial'),
     path('about/', AboutListView.as_view(), name='about'),
+    path('', ImageInHomeListView.as_view(), name='homephoto')
     
 ]

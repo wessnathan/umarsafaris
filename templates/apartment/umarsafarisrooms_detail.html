@@ -19,11 +19,12 @@
             <a href="#{{object.Photo5.url}}" data-lightbox="mygallery"><img src="{{object.Photo5.url}}" alt=""></a>
         </div>
         <div class="sidepage">
+            <h3>{{ object.Name}}</h3>
             <div class="details">
                 <div class="rest">
                     <h2>Room Details</h2>
                     <p>
-                        
+                        {{object.Description}}
                     </p>
                 </div>
                 <div class="facilities">
@@ -31,9 +32,7 @@
                 </div>
             </div>
         </div>
-        <div class="bpage">
-            <h2>Book Now</h2>
-        </div>
+        
     </div>
 
 {% endblock detail %}
