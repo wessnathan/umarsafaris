@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['umarsafaris.herokuapp.com', '127.0.0.1', '192.168.43.147']
 # Application definition
 
 INSTALLED_APPS = [
-    'rest_framework',
+    
     'safarisapp.apps.SafarisappConfig',
     'apartment.apps.ApartmentConfig',
     'carbooking.apps.CarbookingConfig',
@@ -48,9 +48,9 @@ INSTALLED_APPS = [
     'storages',
     'apartment.apartment_booking',
     'carbooking.car_booking',
+    'rest_framework',
     
-    
-    
+
 ]
 
 SITE_ID = 1
