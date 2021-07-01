@@ -6,10 +6,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import *
+from django.contrib.auth.models import User
+from rest_framework import serializers, viewsets, routers
 
 admin.site.site_header = "Umar Safaris"
 admin.site.site_title = "Welcome To UmarSafaris ☺☺"
 admin.site.index_title = "Welcome to Your Portal"
+
+
 
 sitemaps = {
     'home': HomeViewSitemap,

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['umarsafaris.herokuapp.com', '127.0.0.1', '192.168.43.147']
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'safarisapp.apps.SafarisappConfig',
     'apartment.apps.ApartmentConfig',
     'carbooking.apps.CarbookingConfig',
@@ -44,10 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tz_detect',
-    
     'storages',
     'apartment.apartment_booking',
     'carbooking.car_booking',
+    
+    
     
 ]
 
@@ -119,6 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 
 # Internationalization

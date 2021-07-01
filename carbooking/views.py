@@ -2,7 +2,9 @@ from carbooking.car_booking.check_available_car import find_car_choice_id, is_ca
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.views.generic import DetailView
-from django.http.response import HttpResponse
+#from django.views.decorators.csrf import crsf_exempt
+from django.http.response import HttpResponse, JsonResponse
+#from django rest_framework.parsers import JSONParser
 from umarsafaris.settings import EMAIL_HOST_USER
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
@@ -10,8 +12,13 @@ from django.contrib import messages
 from django.conf import settings
 from carbooking.models import Cars_Available, Current_caruser_booking
 from carbooking.forms import Car_BookingForm
+from carbooking.serializers import Current_caruser_bookingSerializer
+from django.views.decorators.csrf import csrf_exempt
+#from rest_framework import JSONParser
+from django.views.decorators import csrf
+#from rest_framework.serializers import Serializer
 
-# Create your views here.
+
 def car_booking_details(request):
     return render(request, 'forms/car_thanks.html')
 
@@ -100,3 +107,30 @@ class CarspageListView(ListView):
 class CarDetailView(DetailView):
     model = Cars_Available
     template_name = 'carbooking/cars_available_detail.html'
+    
+
+#@crsf_exempt
+#def booked_user_list(request):
+    
+    #if request.method == 'GET':
+        #booked_user = Current_caruser_booking.objects.all()
+        #serializer = Current_caruser_bookingSerializer(booked_user, many=True)
+        #return JsonResponse(serializer.data, safe=False)
+    #elif request.method == 'POST':
+        #data = JSONParser().parse(request)
+        #serializer = Current_caruser_bookingSerializer(data=data)
+        
+        #if serializer.is_valid():
+            #serializer.save()
+            #return JsonResponse(serializer.data, status=201)
+        #return JsonResponse(serializer.errors, status=400)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
